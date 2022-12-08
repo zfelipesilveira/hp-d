@@ -13,7 +13,7 @@ const Modelo = ({name, description, status}) => {
                 {description}
             </p>
             <p className='status'>
-                R$ <strong>{status}</strong>
+                 <strong>{status}</strong>
             </p>
         </div>
     </div>)

@@ -3,6 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Modelo from './componentes/Modelo';
 
+
 function App() {
 
   const [modelos, setModelos] = useState([])
@@ -33,6 +34,9 @@ function App() {
           
         />))}
       </section>
+      
+
+      
     </div>
   );
 }
