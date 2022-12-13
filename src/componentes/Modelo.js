@@ -2,18 +2,16 @@ import './Modelo.css'
 
 const Modelo = ({name, description, status}) => {
     return (<div className='modelo'>
-        <div className='imagem-container'>
-            
-        </div>
+        
         <div className='conteudo'>
             <p className='name'>
-                <strong>{name}</strong>
+                Nome:  <strong>{name}</strong>
             </p>
             <p className='description'>
-                {description}
+                Descrição:  {description}
             </p>
             <p className='status'>
-                 <strong>{status}</strong>
+                 Status:  <strong>{status}</strong>
             </p>
         </div>
     </div>)
