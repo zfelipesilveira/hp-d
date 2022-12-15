@@ -3,7 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Modelo from './componentes/Modelo';
 
-import axios from 'axios';
+ import axios from 'axios';
 
 
 
@@ -16,17 +16,24 @@ function App() {
   const [statusForm, setStatusForm] = useState("");
   
 
-  let handleSubmit = axios.post('http://127.0.0.1:8000/api/modelos/', {
+  let handleSubmit = evt => {
+		axios.post('http://127.0.0.1:8000/api/modelos/', {
     name: nameForm,
     description: descriptionForm,
     status: statusForm,
   })
+  
   .then(function (response) {
     return response;
   })
+ 
   .catch(function (error) {
     return error;
+    
   });
+
+  
+  }
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/modelos/')
@@ -43,6 +50,7 @@ function App() {
   
 
   return (
+    <div class="split right">
     <div className="App">
       <div className='banner-container'>
         
@@ -50,39 +58,45 @@ function App() {
       <div className='logo-container'>
         
       </div>
+      <h1>Registered Models</h1>
       <section className='modelos'>
         {modelos.map(modelo => 
         (<Modelo 
           key={modelo.id} 
           name={modelo.name} 
           description={modelo.description}
-          status={modelo.status} 
+          status={modelo.status}
           
         />))}
       </section>
+      </div>
 
-      <form onSubmit={handleSubmit}>
-      <input
+    <div class="split left">
+      <form class="centered" onSubmit={handleSubmit}>
+        <h1 class="titulo-formulario">Register your model</h1>
+        <input
           type="text"
           value={nameForm}
           placeholder="Name"
-          onChange={(e) => setNameForm(e.target.value)}
+	            onChange={(e) => setNameForm(e.target.value)}
         />
         <input
           type="text"
           value={descriptionForm}
           placeholder="Description"
-          onChange={(e) => setDescriptionForm(e.target.value)}
+	            onChange={(e) => setDescriptionForm(e.target.value)}
         />
         <input
           type="text"
           value={statusForm}
           placeholder="Status"
-          onChange={(e) => setStatusForm(e.target.value)}
+	            onChange={(e) => setStatusForm(e.target.value)}
         />
-
-        <button type="submit">Create</button>
+        <button className="newPam">Set Hyperparameters</button>
+        <button className="newPam">Set Stats </button>
+        <button type="submit">Save</button>
       </form>
+      </div>
 
       
 

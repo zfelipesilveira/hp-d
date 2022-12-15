@@ -13,6 +13,8 @@ const Modelo = ({name, description, status}) => {
             <p className='status'>
                  Status:  <strong>{status}</strong>
             </p>
+
+            <button class="button-84" role="button">View details</button>
         </div>
     </div>)
 }
