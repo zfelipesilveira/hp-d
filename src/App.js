@@ -2,6 +2,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import Modelo from './componentes/Modelo';
+import Modal from './componentes/Modal';
 
  import axios from 'axios';
 
@@ -14,6 +15,12 @@ function App() {
   const [nameForm, setNameForm] = useState("");
   const [descriptionForm, setDescriptionForm] = useState("");
   const [statusForm, setStatusForm] = useState("");
+  const [showModal, setShowSModal] = useState(false);
+  
+  
+
+
+
   
 
   let handleSubmit = evt => {
@@ -21,15 +28,24 @@ function App() {
     name: nameForm,
     description: descriptionForm,
     status: statusForm,
+    
+
   })
   
   .then(function (response) {
+    
+    
+
     return response;
+    
   })
  
   .catch(function (error) {
     return error;
     
+
+
+
   });
 
   
@@ -42,6 +58,10 @@ function App() {
         setModelos(dados)
       })
   }, [])
+
+
+
+  
 
  
 
@@ -67,12 +87,16 @@ function App() {
           description={modelo.description}
           status={modelo.status}
           
-        />))}
-      </section>
+          />))}
+          </section>
       </div>
 
     <div class="split left">
       <form class="centered" onSubmit={handleSubmit}>
+        <div>
+            <Modal open={showModal} />
+            
+        </div>
         <h1 class="titulo-formulario">Register your model</h1>
         <input
           type="text"
@@ -92,6 +116,7 @@ function App() {
           placeholder="Status"
 	            onChange={(e) => setStatusForm(e.target.value)}
         />
+        
         <button className="newPam">Set Hyperparameters</button>
         <button className="newPam">Set Stats </button>
         <button type="submit">Save</button>
@@ -105,9 +130,13 @@ function App() {
 
       
     </div>
+
+
   );
 
   
+
+        
 }
 
 export default App;

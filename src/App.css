@@ -31,6 +31,10 @@ h1 {
   text-align: center;
 }
 
+h2{
+  color: #111;
+}
+
 
 .app {
   display: flex;
