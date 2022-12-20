@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Modelo from './componentes/Modelo';
 import Modal from './componentes/Modal';
 
+
  import axios from 'axios';
 
 
@@ -16,6 +17,8 @@ function App() {
   const [descriptionForm, setDescriptionForm] = useState("");
   const [statusForm, setStatusForm] = useState("");
   const [showModal, setShowSModal] = useState(false);
+  
+
   
   
 
@@ -33,10 +36,19 @@ function App() {
   })
   
   .then(function (response) {
-    
+
+    setTimeout(() => {
+      setShowSModal(true);
+    }, 3000);
     
 
+      
+
+    
+
+    
     return response;
+  
     
   })
  
@@ -63,8 +75,8 @@ function App() {
 
   
 
+  
  
-
   
 
   
@@ -94,7 +106,8 @@ function App() {
     <div class="split left">
       <form class="centered" onSubmit={handleSubmit}>
         <div>
-            <Modal open={showModal} />
+          
+             <Modal open={showModal} /> 
             
         </div>
         <h1 class="titulo-formulario">Register your model</h1>
