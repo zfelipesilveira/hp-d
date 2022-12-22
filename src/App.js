@@ -22,10 +22,6 @@ function App() {
   
   
 
-
-
-  
-
   let handleSubmit = evt => {
 		axios.post('http://127.0.0.1:8000/api/modelos/', {
     name: nameForm,
@@ -37,29 +33,19 @@ function App() {
   
   .then(function (response) {
 
+	  setShowSModal(true);
     setTimeout(() => {
-      setShowSModal(true);
-    }, 3000);
-    
-
-      
-
-    
-
+      setShowSModal(false);
+    }, 2000);
     
     return response;
-  
-    
   })
  
   .catch(function (error) {
     return error;
     
 
-
-
   });
-
   
   }
 
@@ -71,12 +57,8 @@ function App() {
       })
   }, [])
 
-
-
   
 
-  
- 
   
 
   
@@ -104,12 +86,8 @@ function App() {
       </div>
 
     <div class="split left">
-      <form class="centered" onSubmit={handleSubmit}>
-        <div>
-          
-             <Modal open={showModal} /> 
-            
-        </div>
+      <form class="centered" >
+        
         <h1 class="titulo-formulario">Register your model</h1>
         <input
           type="text"
@@ -123,18 +101,29 @@ function App() {
           placeholder="Description"
 	            onChange={(e) => setDescriptionForm(e.target.value)}
         />
+       
         <input
           type="text"
           value={statusForm}
           placeholder="Status"
 	            onChange={(e) => setStatusForm(e.target.value)}
         />
+         <div>
+          
+          <Modal open={showModal} /> 
+         
+      </div>
         
         <button className="newPam">Set Hyperparameters</button>
         <button className="newPam">Set Stats </button>
-        <button type="submit">Save</button>
+        <button type="button" onClick={handleSubmit}>Save</button>
       </form>
+
+          
+      {/* <div class="square"> </div>   */}
       </div>
+
+      
 
       
 
