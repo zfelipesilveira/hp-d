@@ -1,9 +1,9 @@
  div .modal-conteudo {
     border-radius: 25px;
-    background: #73AD21;
-    padding: 20px;
-    width: 200px;
-    height: 150px;
+    background: #64D19D;
+    padding: 30px;
+    width: 222px;
+    height: 160px;
     position: absolute;
     z-index:100;
     top: 50%;
@@ -15,13 +15,16 @@
 
   }
 
-  h1 .modal-conteudo{
-    position: bottom;
+    .titulo{
+    position: top;
     color: aliceblue;
+    font-size: 25px;
+    
   }
 
   img {
     height: 60px;
     width: 60px;
     z-index: 150;
+    align-items: center;
   }

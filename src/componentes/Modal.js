@@ -11,7 +11,7 @@ const Modal = props => {
 
         <div className='modal-conteudo'>
         <img class="imagem" src={image}></img>
-        <h1>Modelo registrado</h1>
+        <h1 className="titulo">Model registered!</h1>
         
         </div>
     </div>)
